@@ -14,7 +14,7 @@ class ReCaptcha extends Module {
         $this->author = 'Trzebu';
         $this->name = 'recaptcha';
         $this->tab = 'front_office_features';
-        $this->version = '0.1';
+        $this->version = '0.2';
         $this->ps_versions_compliancy = ['min' => '1.7.0', 'max' => '1.7.6.5'];
         $this->need_instance = 1;
 
@@ -56,6 +56,10 @@ class ReCaptcha extends Module {
     }
 
     public function hookDisplayCustomerAccountForm ($params): string {
+        if ($this->context->customer->isLogged()) {
+            return '';
+        }
+
         if (CaptchaEnabled::registration()) {
             return RecaptchaHelper::getHtml();
         }
