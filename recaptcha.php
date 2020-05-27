@@ -14,7 +14,7 @@ class ReCaptcha extends Module {
         $this->author = 'Trzebu';
         $this->name = 'recaptcha';
         $this->tab = 'front_office_features';
-        $this->version = '0.2';
+        $this->version = '0.3';
         $this->ps_versions_compliancy = ['min' => '1.7.0', 'max' => '1.7.6.5'];
         $this->need_instance = 1;
 
